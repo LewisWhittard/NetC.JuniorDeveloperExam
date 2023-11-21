@@ -108,7 +108,12 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contoller\BlogPostController.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Importer\BlogPostImporter.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Parts\Page.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Parts\BlogPageComponent.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostViewModel.cs" />
+    <Compile Include="Contollers\BlogPostController.cs" />
+    <Compile Include="Contollers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -119,6 +124,7 @@
     <Content Include="Assets\Scripts\unobtrusive-bootstrap.js" />
     <Content Include="Assets\Styles\bootstrap.min.css" />
     <Content Include="Assets\Styles\custom.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Assets\Scripts\jquery-3.3.1.min.js" />
@@ -128,10 +134,16 @@
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="BuissnessLogic\Comments\DTO\" />
+    <Folder Include="BuissnessLogic\Comments\Interface\" />
+    <Folder Include="Views\BlogPost\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Blog-Posts.json" />
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
