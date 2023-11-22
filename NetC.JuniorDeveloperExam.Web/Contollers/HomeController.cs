@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Index", "BlogPost", new { area = "" });
+            return View();
 
         }
 
