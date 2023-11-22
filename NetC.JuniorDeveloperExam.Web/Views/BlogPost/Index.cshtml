@@ -1,7 +1,7 @@
-﻿@model NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel.BlogPostViewModel
+﻿@model NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel.BlogPostCombinedViewModel
 
 @{
-	ViewBag.Title = Model.BlogPostTitle;
+	ViewBag.Title = Model.BlogPost.BlogPostTitle;
 }
 
 <!DOCTYPE html>
@@ -38,19 +38,19 @@
 		<div class="row">
 
 			<!-- Title -->
-			<h1 class="mt-4">@Model.BlogPostTitle</h1>
+			<h1 class="mt-4">@Model.BlogPost.BlogPostTitle</h1>
 
 			<hr>
 
 			<!-- Date/Time -->
-			<p>@Model.blogPostDate</p>
+			<p>@Model.BlogPost.blogPostDate</p>
 
 			<hr>
 
 			<!-- Blog post content -->
 			<div class="col-lg-12">
 
-				@Html.Raw(Model.BlogPostContent)
+				@Html.Raw(Model.BlogPost.BlogPostContent)
 
 				<hr>
 
@@ -78,6 +78,8 @@
 						</form>
 					</div>
 				</div>
+
+				<hr>
 
 				<!-- Blog post comments -->
 				<div class="media mb-4">
