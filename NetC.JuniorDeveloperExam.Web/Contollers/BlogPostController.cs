@@ -29,11 +29,13 @@ namespace NetC.JuniorDeveloperExam.Web.Contollers
             return View(bPCVM);
         }
 
-        public ActionResult PostNewComment(int BlogPostId, string name, string dateTime, string email, string message)
+        [HttpPost]
+        public ActionResult PostNewComment(CommentSubmitViewModel commentSubmitViewModel)
         {
             BlogPostImporterJson bPCIT = new BlogPostImporterJson();
-            var blogPost = bPCIT.ImportByBlogPostId(BlogPostId);
-            Comment comment = new Comment(name,dateTime,email,message);
+            var blogPost = bPCIT.ImportByBlogPostId(commentSubmitViewModel.BlogPostId);
+            commentSubmitViewModel.SetDateTime();
+            Comment comment = new Comment(commentSubmitViewModel);
             blogPost.AddComment(comment);
             var ContainerResult = bPCIT.ImportContainer();
             ContainerResult.updateBlogPostsContainer(blogPost);

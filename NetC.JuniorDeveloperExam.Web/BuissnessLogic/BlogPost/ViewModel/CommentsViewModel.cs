@@ -30,6 +30,11 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel
     {
         public int BlogPostId { get; set; }
 
+        public CommentSubmitViewModel()
+        {
+                
+        }
+
         public CommentSubmitViewModel(int blogPostId)
         {
             BlogPostId = blogPostId;

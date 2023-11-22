@@ -56,12 +56,12 @@
 
 				<!-- Blog post comment form -->
 
-				@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+				@using (Html.BeginForm("PostNewComment", "BlogPost", FormMethod.Post))
 				{
-					@Html.HiddenFor(model => model.CommentSubmitViewModel.BlogPostId);
-					@Html.TextBoxFor(model => model.CommentSubmitViewModel.Name);
+					@Html.HiddenFor(model => model.CommentSubmitViewModel.BlogPostId)
+					@Html.TextBoxFor(model => model.CommentSubmitViewModel.Name)
 					@Html.TextBoxFor(model => model.CommentSubmitViewModel.EmailAddress)
-					@Html.TextBoxFor(Model => Model.CommentSubmitViewModel.Message);
+					@Html.TextBoxFor(Model => Model.CommentSubmitViewModel.Message)
 
 					<button type="submit">Submit</button>
 				}
