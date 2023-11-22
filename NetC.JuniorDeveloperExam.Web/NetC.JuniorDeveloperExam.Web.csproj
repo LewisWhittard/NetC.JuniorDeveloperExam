@@ -112,7 +112,9 @@
     <Compile Include="BuissnessLogic\BlogPost\Classes\blogPostContainer.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Classes\Comment.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Importer\BlogPostImporter.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostCombinedViewModel.cs" />
     <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostViewModel.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\ViewModel\CommentsViewModel.cs" />
     <Compile Include="Contollers\BlogPostController.cs" />
     <Compile Include="Contollers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

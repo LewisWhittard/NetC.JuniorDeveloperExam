@@ -14,9 +14,17 @@ namespace NetC.JuniorDeveloperExam.Web.Contollers
         public ActionResult Index()
         {
             BlogPostImporterJson bPCIT = new BlogPostImporterJson();
-            var result = bPCIT.ImportByBlogPostId(2);
-            BlogPostViewModel bPVM = new BlogPostViewModel(result);
-            return View(bPVM);
+            var result = bPCIT.ImportByBlogPostId(1);
+            BlogPostViewModel blogPostViewModel = new BlogPostViewModel(result);
+            List<CommentViewModel> commentViewModels = new List<CommentViewModel>();
+            foreach (var item in result.Comments)
+            {
+                CommentViewModel cVM = new CommentViewModel(item);
+                commentViewModels.Add(cVM);
+            }
+
+            BlogPostCombinedViewModel bPCVM = new BlogPostCombinedViewModel(blogPostViewModel,commentViewModels);
+            return View(bPCVM);
         }
     }
 }
