@@ -11,12 +11,15 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
     {
         List<BlogPostModel> ImportAll();
         BlogPostModel ImportByBlogPostId(int BlogPostId);
+        BlogPostsContainer ImportContainer();
+
     }
 
     public abstract class AbstractBlogPostImporter : IBlogPostImporter
     {
         public abstract List<BlogPostModel> ImportAll();
         public abstract BlogPostModel ImportByBlogPostId(int BlogPostId);
+        public abstract BlogPostsContainer ImportContainer();
     }
 
     public class BlogPostImporterJson : AbstractBlogPostImporter
@@ -25,13 +28,20 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
         {
             string virtualPath = "~/App_Data/Blog-Posts.json";
             string physicalPath = HostingEnvironment.MapPath(virtualPath);
-            // Read the JSON file
             string jsonContent = System.IO.File.ReadAllText(physicalPath);
-            // Deserialize the JSON content into a list of BlogPost
             var blogPostsContainer = JsonConvert.DeserializeObject<BlogPostsContainer>(jsonContent);
-            //List<BlogPageComponent> blogPageComponents = SeprateBlogPageComponentRow(blogPostData);
             List<BlogPostModel> blogPosts = blogPostsContainer.BlogPosts;
             return blogPosts;
+
+        }
+
+        public override BlogPostsContainer ImportContainer()
+        {
+            string virtualPath = "~/App_Data/Blog-Posts.json";
+            string physicalPath = HostingEnvironment.MapPath(virtualPath);
+            string jsonContent = System.IO.File.ReadAllText(physicalPath);
+            var blogPostsContainer = JsonConvert.DeserializeObject<BlogPostsContainer>(jsonContent);
+            return blogPostsContainer;
 
         }
 

@@ -14,5 +14,10 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Classes
         public string Image { get; set; }
         public string HtmlContent { get; set; }
         public List<Comment> Comments { get; set; }
+
+        public void AddComment(Comment comment)
+        {
+            Comments.Add(comment);
+        }
     }
 }

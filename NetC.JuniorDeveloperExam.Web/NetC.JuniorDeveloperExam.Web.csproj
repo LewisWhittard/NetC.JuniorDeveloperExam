@@ -111,6 +111,7 @@
     <Compile Include="BuissnessLogic\BlogPost\Classes\BlogPost.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Classes\blogPostContainer.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Classes\Comment.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Exporter\BlogPostExporter.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Importer\BlogPostImporter.cs" />
     <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostCombinedViewModel.cs" />
     <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostViewModel.cs" />
