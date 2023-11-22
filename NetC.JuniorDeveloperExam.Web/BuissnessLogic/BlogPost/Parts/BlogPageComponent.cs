@@ -20,7 +20,7 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Parts
             Id = Convert.ToInt32(data[0]);
             BlogPostId = Convert.ToInt32(data[1]);
             PageOrderNumber = Convert.ToInt32(data[2]);
-            PCT = (PageConponentType)Convert.ToInt32(data[3]);
+            PCT = (PageConponentType)Enum.Parse(typeof(PageConponentType), data[3]);
             Value = data[4];
         }
     }
@@ -28,10 +28,8 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Parts
     public enum PageConponentType
     {
         Title = 0,
-        P = 1,
-        H2 = 2,
-        H3 = 3,
-        Date = 4
+        Date = 1,
+        Content = 2
 
     }
 }

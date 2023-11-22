@@ -137,13 +137,13 @@
   <ItemGroup>
     <Folder Include="BuissnessLogic\Comments\DTO\" />
     <Folder Include="BuissnessLogic\Comments\Interface\" />
-    <Folder Include="Views\BlogPost\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Blog-Posts.json" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\BlogPost\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

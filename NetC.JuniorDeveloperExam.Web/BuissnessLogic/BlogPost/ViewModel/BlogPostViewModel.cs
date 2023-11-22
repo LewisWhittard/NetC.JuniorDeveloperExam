@@ -22,8 +22,7 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel
             BlogPageComponentsImporterTXT blogPageComponentsImporterTXT = new BlogPageComponentsImporterTXT();
             var AllContent = blogPageComponentsImporterTXT.ImportByBlogPostId(BlogPostId);
             Title = AllContent.Where(x => x.PCT == PageConponentType.Title).FirstOrDefault();
-            Date = AllContent.Where(x => x.PCT == PageConponentType.Date).FirstOrDefault();
-            BlogPostContent = AllContent.Where(x => x.PCT == PageConponentType.P || x.PCT == PageConponentType.H2 || x.PCT == PageConponentType.H3).ToList();
+            BlogPostContent = AllContent.ToList();
         }
     }
 }

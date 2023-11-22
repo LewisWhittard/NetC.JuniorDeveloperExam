@@ -29,14 +29,22 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
-            "<BlogComponentData>0" +
-            "<BlogComponentData>Title" +
+            "<BlogComponentData>H1" +
+            "<BlogComponentData><h1 class=\"mt-4\">Top 5 Considerations for a Content-First Design Approach</h1>" +
+            
             "<BlogPageComponentRow>" +
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
-            "<BlogComponentData>4" +
-            "<BlogComponentData>Date"
+            "<BlogComponentData>HR" +
+            "<BlogComponentData><hr>" +
+
+            "<BlogPageComponentRow>" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>Date" +
+            "<BlogComponentData><p>Posted on November 11, 2019</p>"
             ;
 
             List<BlogPageComponent> blogPageComponents = SeprateBlogPageComponentRow(blogPostData);

@@ -15,8 +15,7 @@ namespace NetC.JuniorDeveloperExam.Web.Contollers
         {
             BlogPageComponentsImporterTXT bPCIT = new BlogPageComponentsImporterTXT();
             BlogPostViewModel bPVM = new BlogPostViewModel(1);
-
-            return View();
+            return View(bPVM);
         }
     }
 }
