@@ -9,18 +9,19 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
 {
     public interface IBlogPageComponentsImporter
     {
+        List<BlogPageComponent> ImportAll();
         List<BlogPageComponent> ImportByBlogPostId(int BlogPostId);
     }
 
     public abstract class AbstractBlogPageComponentsImporter : IBlogPageComponentsImporter
     {
+        public abstract List<BlogPageComponent> ImportAll();
         public abstract List<BlogPageComponent> ImportByBlogPostId(int BlogPostId);
     }
 
     public class BlogPageComponentsImporterTXT : AbstractBlogPageComponentsImporter
     {
-
-        public override List<BlogPageComponent> ImportByBlogPostId(int BlogPostId)
+        public override List<BlogPageComponent> ImportAll()
         {
             //replace with import method for text file
             string blogPostData =
@@ -28,23 +29,29 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
-            "<BlogComponentData>1" +
-            "<BlogComponentData>Test" +
+            "<BlogComponentData>0" +
+            "<BlogComponentData>Title" +
             "<BlogPageComponentRow>" +
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
             "<BlogComponentData>1" +
-            "<BlogComponentData>1" +
-            "<BlogComponentData>Test"
+            "<BlogComponentData>4" +
+            "<BlogComponentData>Date"
             ;
 
-            List<BlogPageComponent> blogPageComponents = SeprateBlogPageComponentRow(blogPostData, BlogPostId);
-            blogPageComponents.First();
+            List<BlogPageComponent> blogPageComponents = SeprateBlogPageComponentRow(blogPostData);
             return blogPageComponents;
 
         }
 
-        public List<BlogPageComponent> SeprateBlogPageComponentRow(string data, int BlogPostId)
+        public override List<BlogPageComponent> ImportByBlogPostId(int BlogPostId)
+        {
+            var localData = ImportAll().Where(x => x.BlogPostId == BlogPostId).ToList();
+            return localData;
+
+        }
+
+        public List<BlogPageComponent> SeprateBlogPageComponentRow(string data)
         {
             List<string> localData = data.Split(new string[] { "<BlogPageComponentRow>" }, StringSplitOptions.None).ToList();
             localData.RemoveAt(0);
@@ -53,12 +60,8 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
             foreach (var item in localData)
             {
                 List<string> ComponentData = SeprateBlogComponentData(item);
-
-                if (Convert.ToInt32(ComponentData[2]) == BlogPostId)
-                {
-                    BlogPageComponent bPC = new BlogPageComponent(ComponentData);
-                    toReturn.Add(bPC);
-                }
+                BlogPageComponent bPC = new BlogPageComponent(ComponentData);
+                toReturn.Add(bPC);
             }
 
             return toReturn;
