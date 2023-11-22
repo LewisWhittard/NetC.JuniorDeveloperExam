@@ -108,6 +108,9 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Classes\BlogPost.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Classes\blogPostContainer.cs" />
+    <Compile Include="BuissnessLogic\BlogPost\Classes\Comment.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Importer\BlogPostImporter.cs" />
     <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostViewModel.cs" />
     <Compile Include="Contollers\BlogPostController.cs" />
