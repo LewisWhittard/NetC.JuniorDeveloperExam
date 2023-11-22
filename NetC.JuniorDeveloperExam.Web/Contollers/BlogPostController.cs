@@ -13,8 +13,9 @@ namespace NetC.JuniorDeveloperExam.Web.Contollers
         // GET: BlogPage
         public ActionResult Index()
         {
-            BlogPageComponentsImporterTXT bPCIT = new BlogPageComponentsImporterTXT();
-            BlogPostViewModel bPVM = new BlogPostViewModel(1);
+            BlogPageComponentsImporterJson bPCIT = new BlogPageComponentsImporterJson();
+            var result = bPCIT.ImportByBlogPostId(1);
+            BlogPostViewModel bPVM = new BlogPostViewModel(result);
             return View(bPVM);
         }
     }

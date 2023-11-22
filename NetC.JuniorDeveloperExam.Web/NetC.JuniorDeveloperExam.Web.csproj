@@ -109,8 +109,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BuissnessLogic\BlogPost\Importer\BlogPostImporter.cs" />
-    <Compile Include="BuissnessLogic\BlogPost\Parts\Page.cs" />
-    <Compile Include="BuissnessLogic\BlogPost\Parts\BlogPageComponent.cs" />
     <Compile Include="BuissnessLogic\BlogPost\ViewModel\BlogPostViewModel.cs" />
     <Compile Include="Contollers\BlogPostController.cs" />
     <Compile Include="Contollers\HomeController.cs" />
@@ -134,10 +132,7 @@
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BuissnessLogic\Comments\DTO\" />
-    <Folder Include="BuissnessLogic\Comments\Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="App_Data\Blog-Posts.json" />
     <None Include="packages.config" />
