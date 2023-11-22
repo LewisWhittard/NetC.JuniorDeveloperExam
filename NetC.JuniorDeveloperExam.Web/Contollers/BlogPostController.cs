@@ -41,7 +41,7 @@ namespace NetC.JuniorDeveloperExam.Web.Contollers
             ContainerResult.updateBlogPostsContainer(blogPost);
             BlogPostExporter bPE = new BlogPostExporter();
             bPE.Export(ContainerResult);
-            return View();
+            return RedirectToAction("Index", "BlogPost", new { area = "" });
         }
     }
 }
