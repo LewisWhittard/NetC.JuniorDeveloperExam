@@ -25,12 +25,18 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
             //replace with import method for text file
             string blogPostData =
             "<BlogPageComponentRow>" +
-            "<BlogComponentData>1</BlogComponentData>" +
-            "<BlogComponentData>1</BlogComponentData>" +
-            "<BlogComponentData>1</BlogComponentData>" +
-            "<BlogComponentData>1</BlogComponentData>" +
-            "<BlogComponentData>Test</BlogComponentData>" +
-            "</BlogPageComponentRow>";
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>Test" +
+            "<BlogPageComponentRow>" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>1" +
+            "<BlogComponentData>Test"
+            ;
 
             List<BlogPageComponent> blogPageComponents = SeprateBlogPageComponentRow(blogPostData, BlogPostId);
             blogPageComponents.First();
@@ -41,7 +47,7 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
         public List<BlogPageComponent> SeprateBlogPageComponentRow(string data, int BlogPostId)
         {
             List<string> localData = data.Split(new string[] { "<BlogPageComponentRow>" }, StringSplitOptions.None).ToList();
-            localData.remove(localData.IndexOf(0));
+            localData.RemoveAt(0);
             List<BlogPageComponent> toReturn = new List<BlogPageComponent>();
 
             foreach (var item in localData)
@@ -61,6 +67,7 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer
         public List<string> SeprateBlogComponentData(string data)
         {
             List<string> localData = data.Split(new string[] {"<BlogComponentData>"}, StringSplitOptions.None).ToList();
+            localData.RemoveAt(0);
             return localData;   
         }
 
