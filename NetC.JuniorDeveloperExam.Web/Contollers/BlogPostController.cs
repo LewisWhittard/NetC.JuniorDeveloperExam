@@ -13,16 +13,19 @@ namespace NetC.JuniorDeveloperExam.Web.Contollers
     public class BlogPostController : Controller
     {
         // GET: BlogPage
-        public ActionResult Index()
+        public ActionResult Index(int BlogPostId)
         {
             BlogPostImporterJson bPCIT = new BlogPostImporterJson();
-            var result = bPCIT.ImportByBlogPostId(1);
+            var result = bPCIT.ImportByBlogPostId(BlogPostId);
             BlogPostViewModel blogPostViewModel = new BlogPostViewModel(result);
             List<CommentViewModel> commentViewModels = new List<CommentViewModel>();
-            foreach (var item in result.Comments)
+            if (result.Comments != null)
             {
-                CommentViewModel cVM = new CommentViewModel(item);
-                commentViewModels.Add(cVM);
+                foreach (var item in result.Comments)
+                {
+                    CommentViewModel cVM = new CommentViewModel(item);
+                    commentViewModels.Add(cVM);
+                }
             }
 
             BlogPostCombinedViewModel bPCVM = new BlogPostCombinedViewModel(blogPostViewModel,commentViewModels);

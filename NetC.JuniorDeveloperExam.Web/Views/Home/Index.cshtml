@@ -1,17 +1,25 @@
-﻿
+﻿@model NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel.BlogPostContainerViewModel
+
 @{
 	ViewBag.Title = "Blogs";
 }
 
 <h2>Blogs</h2>
 
+@foreach (var item in Model.BlogPosts)
+{
+	using (Html.BeginForm("Index", "BlogPost", FormMethod.Post))
+	{
+		<input type="hidden" id="BlogPostId" name="BlogPostId" value=@item.BlogPostId />
 
-<div class="container mt-4">
-	<div class="card" style="width: 18rem;">
-		<div class="card-body">
-			<h5 class="card-title">Card Title</h5>
-			<p class="card-text"><small class="text-muted">Date: November 22, 2023</small></p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
+		<div class="container mt-4">
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">@item.BlogPostTitle</h5>
+					<p class="card-text"><small class="text-muted">@item.blogPostDate</small></p>
+					<button type="submit" class="btn btn-primary">View</button>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
+	}
+}

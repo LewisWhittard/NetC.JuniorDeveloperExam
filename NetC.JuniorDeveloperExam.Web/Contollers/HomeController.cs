@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Importer;
+using NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel;
 using System.Web.Mvc;
 
 namespace WebApplication1.Controllers
@@ -10,8 +8,10 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-
+            BlogPostImporterJson blogPostImporterJson = new BlogPostImporterJson();
+            var data = blogPostImporterJson.ImportAll();
+            BlogPostContainerViewModel bPCVM = new BlogPostContainerViewModel(data);
+            return View(bPCVM);
         }
 
 
