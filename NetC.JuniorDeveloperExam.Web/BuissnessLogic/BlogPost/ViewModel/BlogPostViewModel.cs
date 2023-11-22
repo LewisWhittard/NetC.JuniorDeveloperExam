@@ -14,6 +14,7 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel
         public string BlogPostTitle { get; set; }
         public string BlogPostContent { get; set; }
         public string blogPostDate { get; set; }
+        public string BlogPostImage { get; set; }
 
 
         public BlogPostViewModel(BlogPostModel BlogPost)
@@ -22,6 +23,7 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel
             BlogPostTitle = BlogPost.Title;
             blogPostDate = BlogPost.Date.ToString();
             BlogPostContent = BlogPost.HtmlContent;
+            BlogPostImage = BlogPost.Image;
         }
     }
 }
