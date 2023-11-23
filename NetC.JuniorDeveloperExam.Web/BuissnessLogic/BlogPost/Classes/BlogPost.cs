@@ -17,6 +17,10 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.Classes
 
         public void AddComment(Comment comment)
         {
+            if (Comments == null)
+            {
+                Comments = new List<Comment>();
+            }
             Comments.Add(comment);
         }
     }
