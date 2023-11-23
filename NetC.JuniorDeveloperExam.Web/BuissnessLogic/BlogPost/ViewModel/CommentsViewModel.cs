@@ -9,10 +9,13 @@ namespace NetC.JuniorDeveloperExam.Web.BuissnessLogic.BlogPost.ViewModel
 {
     public class CommentBase
     {
+        [Required]
         public string Name { get; set; }
         public string Date { get; set; }
+        [Required]
         [EmailAddress]
         public string EmailAddress { get; set; }
+        [Required]
         public string Message { get; set; }
     }
 
